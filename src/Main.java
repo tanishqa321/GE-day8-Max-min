@@ -11,19 +11,23 @@ class GenericMax<T extends Comparable<T>> {
         this.elements = elements;
     }
 
-    public T findMaximum() {
-        return findMaximum(elements);
+    public void  findMaximum() {
+         findMaximum(elements);
     }
 
 
-    public T findMaximum(T... elements) {
+    public void findMaximum(T... elements) {
         T max = elements[0];
         for (T value : elements) {
             if (value.compareTo(max) > 0) {
                 max = value;
             }
         }
-        return max;
+        printMax(max);
+
+    }
+    public void printMax(T max) {
+        System.out.println("Max Value From Print Function: " + max);
     }
 }
 public class Main {
@@ -39,7 +43,7 @@ public class Main {
             String[] strings = line.split(" ");
 
         GenericMax<String> stringMax = new GenericMax<>(strings);
-        System.out.println("Max String: " + stringMax.findMaximum());
+        stringMax.findMaximum();
         }
         catch (Exception e){
             System.out.println("Enter Some Strings");
@@ -55,7 +59,7 @@ public class Main {
             }
 
         GenericMax<Integer> intMax = new GenericMax<>(integers);
-        System.out.println("Max Integer: " + intMax.findMaximum());
+        intMax.findMaximum();
         }
         catch (Exception e){
             System.out.println("Error handling Please Enter Some Integers");
@@ -71,7 +75,7 @@ public class Main {
             }
 
         GenericMax<Float> floatMax = new GenericMax<>(floats);
-        System.out.println("Max Float: " + floatMax.findMaximum());
+         floatMax.findMaximum();
         }
         catch (Exception e){
             System.out.println("Error Handling Please Enter Float Numbers");
